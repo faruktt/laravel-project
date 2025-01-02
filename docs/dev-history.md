@@ -6,3 +6,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: implement room status filter in dashboard`
 - **Details**: Added query filter for active and maintenance room statuses.
 
+### 2025-01-02 13:46
+- **Commit**: `docs: update booking lifecycle architecture notes`
+- **Details**: Documented state transitions from pending to confirmed bookings.
+

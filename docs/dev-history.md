@@ -10,3 +10,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: update booking lifecycle architecture notes`
 - **Details**: Documented state transitions from pending to confirmed bookings.
 
+### 2025-01-02 15:30
+- **Commit**: `refactor: clean up customer controller query logic`
+- **Details**: Streamlined customer retrieval and eager-loaded room associations.
+

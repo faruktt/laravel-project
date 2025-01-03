@@ -18,3 +18,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: handle edge case in customer phone format`
 - **Details**: Added regex sanitization for Bangladeshi and international phone formats.
 
+### 2025-01-03 18:39
+- **Commit**: `feat: add room pricing helper functions`
+- **Details**: Created utility method to compute seasonal room rates.
+

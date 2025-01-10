@@ -58,3 +58,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add export button placeholder on customer table`
 - **Details**: Prepared UI hook for CSV and Excel customer export.
 
+### 2025-01-10 11:23
+- **Commit**: `docs: add setup instructions for local MySQL database`
+- **Details**: Updated development prerequisites with database configuration tips.
+

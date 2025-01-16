@@ -21,3 +21,18 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+
+# Archives
+*.zip
+*.rar
+*.tar
+*.gz
+*.7z
+
+# Database dumps
+*.sql
+*.sqlite-journal
+
+# Operating System files
+.DS_Store
+Thumbs.db

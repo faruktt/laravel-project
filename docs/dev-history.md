@@ -98,3 +98,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: simplify auth middleware checks on admin routes`
 - **Details**: Consolidated route middleware definitions into clean group.
 
+### 2025-01-16 11:54
+- **Commit**: `docs: document invoice PDF printing workflow`
+- **Details**: Detailed browser print styling rules for A4 invoice layouts.
+

@@ -106,3 +106,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add search input debounce on customer directory`
 - **Details**: Improved UX when searching customer records by name or phone.
 
+### 2025-01-17 12:43
+- **Commit**: `fix: ensure soft deleted rooms are excluded from bookings`
+- **Details**: Added global query check to prevent booking deactivated rooms.
+

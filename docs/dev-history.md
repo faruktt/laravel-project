@@ -130,3 +130,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: handle zero-price exception in room creation`
 - **Details**: Added minimum value constraint on room price input.
 
+### 2025-01-20 13:19
+- **Commit**: `style: improve modal popup transitions for room editing`
+- **Details**: Smooth CSS transitions for editing room details.
+

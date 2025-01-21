@@ -138,3 +138,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add daily check-in summary widget on dashboard`
 - **Details**: Quick overview widget showing today's expected arrivals.
 
+### 2025-01-21 11:07
+- **Commit**: `refactor: standardize JSON responses across all API controllers`
+- **Details**: Enveloped data, status, and message keys uniformly.
+

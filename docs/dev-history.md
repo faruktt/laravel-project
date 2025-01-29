@@ -174,3 +174,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: clean up customer controller query logic`
 - **Details**: Streamlined customer retrieval and eager-loaded room associations.
 
+### 2025-01-29 18:33
+- **Commit**: `fix: handle edge case in customer phone format`
+- **Details**: Added regex sanitization for Bangladeshi and international phone formats.
+

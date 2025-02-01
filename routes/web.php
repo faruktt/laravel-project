@@ -8,7 +8,7 @@ use App\Http\Controllers\RoomstatusController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -24,7 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::resource('roomstatus', RoomstatusController::class);
     Route::resource('customer', CustomerController::class);
 
-    Route::get('/filter-rooms', [CustomerController::class, 'filterRooms']);
 
 
 });

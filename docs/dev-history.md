@@ -190,3 +190,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: implement room search by capacity`
 - **Details**: Added dropdown filter for single, double, and deluxe capacity.
 
+### 2025-02-03 12:36
+- **Commit**: `docs: document API error response structure`
+- **Details**: Added schema definitions for standard 400, 401, 404, and 422 JSON errors.
+

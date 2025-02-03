@@ -198,3 +198,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: optimize invoice generation calculations`
 - **Details**: Cached repetitive tax and subtotal calculations during invoice render.
 
+### 2025-02-03 16:08
+- **Commit**: `fix: adjust notification timestamp timezone offset`
+- **Details**: Ensured created_at timestamps reflect Asia/Dhaka timezone.
+

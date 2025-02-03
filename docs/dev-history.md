@@ -194,3 +194,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: document API error response structure`
 - **Details**: Added schema definitions for standard 400, 401, 404, and 422 JSON errors.
 
+### 2025-02-03 13:18
+- **Commit**: `refactor: optimize invoice generation calculations`
+- **Details**: Cached repetitive tax and subtotal calculations during invoice render.
+

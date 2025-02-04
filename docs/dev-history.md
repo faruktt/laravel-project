@@ -202,3 +202,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: adjust notification timestamp timezone offset`
 - **Details**: Ensured created_at timestamps reflect Asia/Dhaka timezone.
 
+### 2025-02-04 16:21
+- **Commit**: `feat: add customer payment status indicators`
+- **Details**: Visual badges for paid, partial, and pending balances.
+

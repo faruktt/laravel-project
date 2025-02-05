@@ -18,8 +18,9 @@ class CustomerController extends Controller
 
         $customers = $query->get();
         $allCustomer = Customer::count();
+        $allCustomers = Customer::paginate(5);
 
-        return view('Customer.index', compact('customers', 'allCustomer'));
+        return view('Customer.index', compact('customers', 'allCustomer','allCustomers'));
     }
 
     public function create(){

@@ -8,7 +8,7 @@ use App\Models\Roomstatus;
 class RoomstatusController extends Controller
 {
     public function index(){
-        $statusData = Roomstatus::all();
+        $statusData = Roomstatus::paginate(5);
         return view('RoomStatus.index',compact('statusData'));
     }
 
@@ -34,5 +34,23 @@ class RoomstatusController extends Controller
     } else {
         return redirect()->back()->with('error', 'Failed to add type.');
     }
+}
+
+public function activate($id)
+{
+    $roomstatus = Roomstatus::find($id);
+    $roomstatus->status = 1;  // Change status to active
+    $roomstatus->save();
+
+    return redirect()->route('roomstatus.index')->with('success', 'roomstatus Activated');
+}
+
+public function deactivate($id)
+{
+    $roomstatus = Roomstatus::find($id);
+    $roomstatus->status = 0;  // Change status to inactive
+    $roomstatus->save();
+
+    return redirect()->route('roomstatus.index')->with('success', 'roomstatus Deactivated');
 }
 }

@@ -49,21 +49,24 @@
                                 </a>
 
                                 <!-- Active/Inactive Button -->
-                                @if($item->status == 'active')
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye"></i> Active
-                                    </a>
-                                @else
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye-slash"></i>
-                                    </a>
-                                @endif
+                                @if($item->status == 1)
+                                <a href="{{ route('type.deactivate', $item->id) }}" class="btn btn-sm">
+                                    <i class="fa-solid fa-eye-slash text-info"></i>
+                                </a>
+                            @else
+                                <a href="{{ route('type.activate', $item->id) }}" class="btn btn-sm">
+                                    <i class="fa-solid fa-eye text-success"></i>
+                                </a>
+                            @endif
                             </td>
                         </tr>
                         @endforeach
                         <!-- Add dynamic rows here -->
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center mt-3">
+                    {{ $allType->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </div>

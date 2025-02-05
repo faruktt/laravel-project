@@ -6,6 +6,7 @@
 
 
 
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -38,7 +39,7 @@
                     <tbody>
                         @foreach ($allRoomData as $key=>$item)
                         <tr>
-                            <td>{{ $key+1 }}</td>
+                            <td>{{ ($allRoomData->currentPage() - 1) * $allRoomData->perPage() + $loop->iteration }}</td>
                             <td>{{ $item->room_no }}</td>
                             <td>{{ $item->type->type }}</td>
                             <td>{{ $item->capacity }}</td>
@@ -62,16 +63,17 @@
                                     <i class="fas fa-trash-alt text-danger"></i>
                                 </a>
 
-                                <!-- Active/Inactive Button -->
-                                @if($item->status == 'active')
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye"></i> Active
+                                @if($item->status == 1)
+                                    <a href="{{ route('room.deactivate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye-slash text-info"></i>
                                     </a>
                                 @else
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye-slash"></i>
+                                    <a href="{{ route('room.activate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye text-success"></i>
                                     </a>
                                 @endif
+
+
                             </td>
 
                         </tr>
@@ -79,6 +81,10 @@
                         <!-- Add dynamic rows here -->
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center mt-3">
+                    {{ $allRoomData->links('pagination::bootstrap-5') }}
+                </div>
+
             </div>
         </div>
     </div>

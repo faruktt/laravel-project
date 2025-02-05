@@ -79,9 +79,9 @@
                         </tbody>
                     </table>
                     <!-- Pagination -->
-{{-- <div class="d-flex justify-content-center mt-3">
-    {{ $allcustomerData->links() }}
-</div> --}}
+<div class="d-flex justify-content-center mt-3">
+    {{ $allCustomers->links() }}
+</div>
                 </div>
             </div>
         </div>

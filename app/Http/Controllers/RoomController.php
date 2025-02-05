@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Type;
 use App\Models\Roomstatus;
 
+
 class RoomController extends Controller
 {
 
@@ -14,7 +15,7 @@ class RoomController extends Controller
     {
         $typeData = Type::where('status', 'active')->get();
         $satusData = Roomstatus::where('status', 'active')->get();
-        $allRoomData = Room::with('type')->get();
+        $allRoomData = Room::paginate(5);
         return view('room.index',compact('typeData','satusData','allRoomData'));
     }
 
@@ -51,4 +52,23 @@ class RoomController extends Controller
             return redirect()->back()->with('error', 'Failed to add type.');
         }
     }
+
+    public function activate($id)
+    {
+        $room = Room::find($id);
+        $room->status = 1;  // Change status to active
+        $room->save();
+
+        return redirect()->route('room.index')->with('success', 'Room Activated');
+    }
+
+    public function deactivate($id)
+    {
+        $room = Room::find($id);
+        $room->status = 0;  // Change status to inactive
+        $room->save();
+
+        return redirect()->route('room.index')->with('success', 'Room Deactivated');
+    }
+
 }

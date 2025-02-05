@@ -48,14 +48,13 @@
                                     <i class="fas fa-trash-alt text-danger"></i>
                                 </a>
 
-                                <!-- Active/Inactive Button -->
-                                @if($item->status == 'active')
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye"></i> Active
+                                @if($item->status == 1)
+                                    <a href="{{ route('roomstatus.deactivate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye-slash text-info"></i>
                                     </a>
                                 @else
-                                    <a href="" class="btn btn-sm">
-                                        <i class="fa-solid fa-eye-slash"></i>
+                                    <a href="{{ route('roomstatus.activate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye text-success"></i>
                                     </a>
                                 @endif
                             </td>
@@ -64,6 +63,9 @@
                         <!-- Add dynamic rows here -->
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center mt-3">
+                    {{ $statusData->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </div>

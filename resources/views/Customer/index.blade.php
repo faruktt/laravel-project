@@ -1,406 +1,92 @@
 @extends('master')
 
 @section('content')
-
+    <!-- Add in the <head> section -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
-        .containers {
-            margin-top: -20px;
-            height: 100px; /* Reduced height */
-            overflow: hidden;
-        }
-
-        .progress-indicator {
-            display: flex;
-            justify-content: space-between;
-            padding: 0;
-            list-style: none;
-            position: relative;
-        }
-        .progress-indicator::before {
-            content: "";
-            position: absolute;
-            top: 28%;
-            left: 10%;
-            width: 80%;
-            height: 4px;
-            background: #ddd;
-            transform: translateY(-50%);
-            z-index: 0;
-        }
-        .progress-indicator li {
-            position: relative;
-            text-align: center;
-            flex: 1;
-            font-size: 14px;
-            color: #999;
-            font-weight: 600;
-        }
-        .progress-indicator .bubble {
-            width: 25px;
-            height: 25px;
-            background: #ddd;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto 5px;
-            position: relative;
-            z-index: 1;
-        }
-        .progress-indicator li.completed {
-            color: #28a745;
-        }
-        .progress-indicator li.completed .bubble {
-            background: #28a745;
-        }
-        .progress-indicator li.completed + li::before {
-            background: #28a745;
-        }
-        .profile-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .profile-card img {
-            border-radius: 0;
-            display: block;
-            margin: 0 auto;
-            width: 200px;
-            height: 200px;
-        }
-        .profile-card p {
-            margin-top: -10px;
-            margin-bottom: 10px;
-        }
-        .profile-card h5 {
-            text-align: center;
-        }
-        .hidden {
-            display: none;
-        }
-
-    </style>
-
-    <div class="container mt-4">
-        <!-- Step Progress -->
-        <div class="containers">
-            <div class="col-lg-8 mx-auto">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <ul class="progress-indicator m-0">
-                            <li class="completed">
-                                <span class="bubble"></span> Identity Card
-                            </li>
-                            <li>
-                                <span class="bubble"></span> How many person?
-                            </li>
-                            <li>
-                                <span class="bubble"></span> Pick a room
-                            </li>
-                            <li>
-                                <span class="bubble"></span> Confirmation
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Form Section -->
-            <div class="col-md-8">
-                <div class="card p-3">
-                    <form action="{{ route('customer.store') }}" method="POST" id="bookingForm" >
-                    @csrf
-                        <!-- Step 1: Customer Information -->
-                        <div id="step-1">
-                            <div class="mb-1">
-                                <label>Name:</label>
-                                <input type="text" name="name" class="form-control" id="name" required>
-                            </div>
-                            <div class="mb-1">
-                                <label>Email:</label>
-                                <input type="email" name="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-1">
-                                <label>Phone:</label>
-                                <input type="number" name="phone" class="form-control" id="number" required>
-                            </div>
-                            <div class="mb-1">
-                                <label>Job:</label>
-                                <input type="text" name="job" class="form-control" id="job" required>
-                            </div>
-                            <div class="mb-1">
-                                <label>Address:</label>
-                                <input type="text" name="address" class="form-control" id="address" required>
-                            </div>
-                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h3>Customer({{ $allCustomer }})</h3>
+                     <div class="mb-0">
+                        <!-- Search Box -->
+                     <form method="GET" action="{{ route('customer.index') }}" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" name="phone" class="form-control" placeholder="Search By Phone Number" value="{{ request('phone') }}">
+                            <button class="btn btn-" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
-
-                        <!-- Step 2: Number of Persons -->
-                        <div id="step-2" class="d-none">
-                            <div class="mb-2">
-                                <label>Number of Persons:</label>
-                                <input type="number" name="persons" class="form-control" id="persons" required>
-                            </div>
-                            <div class="mb-2">
-                                <label>From:</label>
-                                <input type="date" name="from_date" class="form-control" id="from_date" required>
-                            </div>
-                            <div class="mb-2">
-                                <label>Until:</label>
-                                <input type="date" name="until_date" class="form-control" id="until_date" required>
-                            </div>
-                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-                            <button type="button" class="btn btn-primary" onclick="loadRooms()">Next</button>
-                        </div>
-
-                        <!-- Step 3: Room Selection -->
-                        <div id="step-3" class="d-none">
-                            <div id="room-list" class="row">
-                                <select name="room_id" required>
-
-                                </select>
-
-
-                            </div>
-                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
-                        </div>
-                        <input type="hidden" id="selected-room-id" name="room_id">
-
-
-                        <div id="step-4" class="d-none">
-                            <h5>Payment Information</h5>
-                            <div class="mb-2">
-                                <label>From:</label>
-                                <input type="text" class="form-control" id="from_date_display" readonly>
-                            </div>
-                            <div class="mb-2">
-                                <label>Until:</label>
-                                <input type="text" class="form-control" id="until_date_display" readonly>
-                            </div>
-                            <div class="mb-2">
-                                <label>Days</label>
-                                <input type="text" class="form-control" id="day" readonly>
-                            </div>
-                            <div class="mb-2">
-                                <label>Price/Day</label>
-                                <input type="text" class="form-control" id="price" readonly>
-                            </div>
-                            <div class="mb-2">
-                                <label>Total Price</label>
-                                <input type="text" name="total_price" class="form-control" id="total" readonly>
-                            </div>
-                            <div class="mb-2">
-                                <label>Payment</label>
-                                <input type="number" name="payment" class="form-control" id="payment" required oninput="calculateBalance()">
-                            </div>
-                            <div class="mb-2">
-                                <label>Insufficient Balance</label>
-                                <input type="text" name="insufficient_balance" class="form-control" id="balance" readonly>
-                            </div>
-
-                            <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                        </div>
-
                     </form>
+                     </div>
+                    <a class="btn btn-success btn-sm" href="{{ route('customer.create') }}">
+                        <i class="bi bi-plus"></i> Add
+                    </a>
                 </div>
-            </div>
 
-            <!-- Profile Section (Hidden Initially) -->
-            <div class="col-md-4">
-                <div id="profile-card" class="profile-card hidden">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Avatar">
-                    <h5 id="profile-name"></h5>
-                    <p id="profile-email"></p>
-                    <p id="profile-phone"></p>
-                    <p id="profile-job"></p>
-                    <p id="profile-address"></p>
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-danger">{{ session('error') }}</div>
+                @endif
+
+                <div class="card-body">
+
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Job</th>
+                                <th>Address</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($customers as $customer)
+                                <tr>
+                                    <td>{{ $customer->name }}</td>
+                                    <td>{{ $customer->email }}</td>
+                                    <td>{{ $customer->phone }}</td>
+                                    <td>{{ $customer->job }}</td>
+                                    <td>{{ $customer->address }}</td>
+
+                                    <td>
+                                        @if ($customer->insufficient_balance > 0)
+                                            <a href="{{ route('customer.edit', $customer->id) }}" class="text-success fs-5">
+                                                <i class="fa-solid fa-money-bill-wave"></i>
+                                            </a>
+                                        @else
+                                            <i class="fa-solid fa-money-bill-wave text-secondary fs-5" style="opacity: 0.5; cursor: not-allowed;"></i>
+                                        @endif
+
+                                        <!-- Delete Icon with Form -->
+                                        <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-danger" style="background:none; border:none;">
+                                                <i class="fa-solid fa-trash-can" style="color: red; margin-left: 10px;"></i> <!-- added margin-left -->
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    <!-- Pagination -->
+{{-- <div class="d-flex justify-content-center mt-3">
+    {{ $allcustomerData->links() }}
+</div> --}}
                 </div>
             </div>
         </div>
     </div>
 
-    <script>
-        let currentStep = 1;
-        const steps = document.querySelectorAll('.progress-indicator li');
-
-        function updateProgress() {
-            steps.forEach((step, index) => {
-                if (index < currentStep) {
-                    step.classList.add('completed');
-                } else {
-                    step.classList.remove('completed');
-                }
-            });
-        }
-
-        function nextStep() {
-            if (currentStep < 4) {
-                document.getElementById('step-' + currentStep).classList.add('d-none');
-                currentStep++;
-                document.getElementById('step-' + currentStep).classList.remove('d-none');
-                updateProgress();
-
-                // Show profile after filling customer information
-                if (currentStep === 2) {
-                    let name = document.getElementById('name').value;
-                    let email = document.getElementById('email').value;
-                    let phone = document.getElementById('number').value;
-                    let job = document.getElementById('job').value;
-                    let address = document.getElementById('address').value;
-
-                    if (name && email && phone && job && address) {
-                        document.getElementById('profile-card').classList.remove('hidden');
-                        document.getElementById('profile-name').innerText = name;
-                        document.getElementById('profile-email').innerText = "📧 " + email;
-                        document.getElementById('profile-phone').innerText = "📞 " + phone;
-                        document.getElementById('profile-job').innerText = "💼 " + job;
-                        document.getElementById('profile-address').innerText = "📍 " + address;
-                    }
-                }
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                document.getElementById('step-' + currentStep).classList.add('d-none');
-                currentStep--;
-                document.getElementById('step-' + currentStep).classList.remove('d-none');
-                updateProgress();
-            }
-        }
-
-        function loadRooms() {
-            let persons = document.getElementById('persons').value;
-            let fromDate = document.getElementById('from_date').value;
-            let untilDate = document.getElementById('until_date').value;
-
-            if (!persons || !fromDate || !untilDate) {
-                alert('Please fill all fields.');
-                return;
-            }
-
-            fetch(`/filter-rooms?persons=${persons}&from=${fromDate}&until=${untilDate}`)
-                .then(response => response.json())
-                .then(data => {
-                    let roomList = document.getElementById('room-list');
-                    roomList.innerHTML = '';
-
-                    if (data.length === 0) {
-                        roomList.innerHTML = '<p class="text-danger">No rooms available for selected number of persons.</p>';
-                    } else {
-                        data.forEach(room => {
-                            roomList.innerHTML += `
-                                <div class="col-md-4 p-2">
-                                    <div class="card p-3 shadow">
-                                        <h5>Room No: ${room.room_no}</h5>
-                                        <p>Capacity: ${room.capacity}</p>
-                                        <p>Price: ${room.price} BDT</p>
-                                        <p>${room.view}</p>
-                                        <button class="btn btn-success" onclick="selectRoom(${room.id}, ${room.price})">Select</button>
-                                    </div>
-                                </div>
-                            `;
-                        });
-
-                        // Activate Step 3
-                        document.getElementById('step-2').classList.add('d-none');
-                        document.getElementById('step-3').classList.remove('d-none');
-                        currentStep = 3;
-                        updateProgress();
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-
-        function selectRoom(roomId, roomPrice) {
-    alert("Room " + roomId + " selected! Price: " + roomPrice + " BDT");
-
-    // Store the selected room ID and price (optional: send it to backend)
-    document.getElementById('selected_room_id').value = roomId; // If you're using a hidden input field
-    document.getElementById('selected_room_price').value = roomPrice; // If you're using a hidden input field
-
-    // Move to the next step
-    document.getElementById('step-3').classList.add('d-none');
-    document.getElementById('step-4').classList.remove('d-none');
-
-    currentStep = 4;
-    updateProgress();
-}
-
-
-
-
-
-
-// Step-4 calculation
-let selectedRoomPrice = 0; // Store selected room price
-
-function selectRoom(roomId, price) {
-    selectedRoomPrice = price; // Store room price
-
-    // Display date values in Step 4
-    let fromDate = document.getElementById('from_date').value;
-    let untilDate = document.getElementById('until_date').value;
-
-    if (!fromDate || !untilDate) {
-        alert("Please select dates first.");
-        return;
-    }
-
-    // Calculate days difference
-    let from = new Date(fromDate);
-    let until = new Date(untilDate);
-    let timeDiff = until.getTime() - from.getTime();
-    let days = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convert milliseconds to days
-
-    if (days <= 0) {
-        alert("Check-out date must be after check-in date.");
-        return;
-    }
-
-    // Calculate total price
-    let totalPrice = days * selectedRoomPrice;
-
-    // Display values in Step 4
-    document.getElementById('from_date_display').value = fromDate;
-    document.getElementById('until_date_display').value = untilDate;
-    document.getElementById('day').value = days;
-    document.getElementById('price').value = selectedRoomPrice + " BDT";
-    document.getElementById('total').value = totalPrice + " BDT";
-
-    // Show Step 4 and hide Step 3
-    document.getElementById('step-3').classList.add('d-none');
-    document.getElementById('step-4').classList.remove('d-none');
-
-    currentStep = 4;
-    updateProgress();
-}
-
-// Function to calculate remaining balance
-function calculateBalance() {
-    let total = parseFloat(document.getElementById('total').value);
-    let payment = parseFloat(document.getElementById('payment').value);
-
-    if (isNaN(payment)) {
-        payment = 0;
-    }
-
-    let balance = total - payment;
-
-    document.getElementById('balance').value = balance + " BDT"; // Show balance
-}
-
-    </script>
-
-
-
+    <!-- Add before the closing </body> tag -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

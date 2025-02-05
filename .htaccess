@@ -1,0 +1,4 @@
+<IFModule mod_rewrite.c>
+RewriteEnglish On
+RewriteRule ^(.*)$ /laravel-project/public/$1 [L]
+</IFModule>

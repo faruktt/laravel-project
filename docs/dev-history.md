@@ -206,3 +206,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add customer payment status indicators`
 - **Details**: Visual badges for paid, partial, and pending balances.
 
+### 2025-02-06 18:47
+- **Commit**: `test: add validation check for room reservation dates`
+- **Details**: Unit test verifying until_date must be after from_date.
+

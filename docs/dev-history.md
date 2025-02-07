@@ -210,3 +210,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `test: add validation check for room reservation dates`
 - **Details**: Unit test verifying until_date must be after from_date.
 
+### 2025-02-07 14:18
+- **Commit**: `refactor: modularize frontend navbar links`
+- **Details**: Extracted repetitive navigation markup into shared component.
+

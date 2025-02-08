@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('master');
+    return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -48,6 +48,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/notifications/count', [InvoiceController::class, 'getUnreadCount'])->name('notifications.count');
     Route::post('/notifications/mark-as-read', [InvoiceController::class, 'markAsRead'])->name('notifications.markAsRead');
     Route::get('/customer-chart', [CustomerChartController::class, 'getChartData'])->name('customer.chart');
+    Route::get('/customer-data', [CustomerChartController::class, 'getCustomerData']);
     Route::get('/customer-list', [CustomerChartController::class, 'getCustomerList'])->name('customer.list');
 
 

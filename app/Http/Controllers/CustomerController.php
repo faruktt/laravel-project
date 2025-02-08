@@ -9,18 +9,24 @@ use Carbon\Carbon;
 
 class CustomerController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
+        // Query তৈরি
         $query = Customer::query();
 
+        // যদি phone ফিল্টার থাকে
         if ($request->has('phone')) {
             $query->where('phone', 'like', '%' . $request->input('phone') . '%');
         }
 
-        $customers = $query->get();
-        $allCustomer = Customer::count();
-        $allCustomers = Customer::paginate(5);
+        // পেজিনেটেড কাস্টমার ডেটা (5টি করে)
+        $customers = $query->paginate(6);
 
-        return view('Customer.index', compact('customers', 'allCustomer','allCustomers'));
+        // মোট কাস্টমার সংখ্যা (সার্চের ফলাফলের উপর ভিত্তি করে)
+        $allCustomer = Customer::count();
+
+        // ভিউতে ডেটা পাঠানো
+        return view('Customer.index', compact('customers', 'allCustomer'));
     }
 
     public function create(){

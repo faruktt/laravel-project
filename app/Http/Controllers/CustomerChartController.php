@@ -12,25 +12,40 @@ class CustomerChartController extends Controller
     {
        return view('dashboard');
     }
+    public function getCustomerData()
+    {
+        // এখানে আমরা এক্সট্রা কলাম যেমন: total_customers, total_price ইত্যাদি গণনা করছি
+        $data = Customer::selectRaw('DATE(created_at) as date,
+                                    COUNT(id) as total_customers,
+                                    SUM(total_price) as total_price,
+                                    SUM(payment) as total_payment,
+                                    SUM(insufficient_balance) as insufficient_balance')
+                        ->groupBy('date')
+                        ->orderBy('date', 'ASC')
+                        ->get();
+
+        return response()->json($data);
+    }
 
     public function getCustomerList(Request $request)
     {
-        $query = Customer::select('name', 'email', 'created_at');
+        $date = $request->get('date', ''); // Get the date from the request (empty by default)
 
-        if ($request->has('date') && !empty($request->date)) {
-            $query->whereDate('created_at', $request->date);
+        $query = Customer::query();
+
+        if ($date) {
+            $query->whereDate('created_at', $date); // Filter customers by the given date
         }
 
-        $customers = $query->orderBy('created_at', 'desc')->get();
+        // Paginate results (5 customers per page)
+        $customers = $query->paginate(5);
 
         return response()->json([
-            'customers' => $customers->map(function ($customer) {
-                return [
-                    'name' => $customer->name,
-                    'email' => $customer->email,
-                    'date' => $customer->created_at->format('Y-m-d')
-                ];
-            })
+            'customers' => $customers->items(),  // Get the items for the current page
+            'current_page' => $customers->currentPage(),
+            'last_page' => $customers->lastPage(),
+            'total' => $customers->total(),
         ]);
     }
+
 }

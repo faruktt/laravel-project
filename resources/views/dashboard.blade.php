@@ -14,6 +14,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
+                        <th>SL</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Date</th>
@@ -23,75 +24,142 @@
                     <!-- Data will be loaded dynamically -->
                 </tbody>
             </table>
+
+            <!-- Pagination controls -->
+            <div id="paginationControls">
+                <!-- Pagination will be dynamically inserted here -->
+            </div>
         </div>
 
         <!-- ডান পাশে চার্ট -->
         <div class="col-md-6">
             <h4>Customer Growth Chart</h4>
             <canvas id="customerChart"></canvas>
+            <script>
+                fetch('/customer-data')  // Controller থেকে ডেটা ফেচ করা হচ্ছে
+                    .then(response => response.json())
+                    .then(data => {
+                        // Data থেকে labels এবং datasets আলাদা করা হচ্ছে
+                        let labels = data.map(item => item.date);
+                        let totalCustomers = data.map(item => item.total_customers);
+                        let totalPrice = data.map(item => item.total_price);
+                        let totalPayment = data.map(item => item.total_payment);
+                        let insufficientBalance = data.map(item => item.insufficient_balance);
+
+                        let ctx = document.getElementById('customerChart').getContext('2d');
+                        new Chart(ctx, {
+                            type: 'line',  // Line chart type
+                            data: {
+                                labels: labels,  // X-axis: Dates
+                                datasets: [
+                                    {
+                                        label: 'Total Customers',  // First line: Total Customers
+                                        data: totalCustomers,
+                                        borderColor: 'rgba(54, 162, 235, 1)',
+                                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                        borderWidth: 2,
+                                        tension: 0.3
+                                    },
+                                    {
+                                        label: 'Total Price',
+                                        data: totalPrice,
+                                        borderColor: 'rgba(255, 206, 86, 1)',
+                                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                                        borderWidth: 2,
+                                        tension: 0.3
+                                    },
+                                    {
+                                        label: 'Total Payment',
+                                        data: totalPayment,
+                                        borderColor: 'rgba(75, 192, 192, 1)',
+                                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                                        borderWidth: 2,
+                                        tension: 0.3
+                                    },
+                                    {
+                                        label: 'Insufficient Balance',
+                                        data: insufficientBalance,
+                                        borderColor: 'rgba(255, 99, 132, 1)',
+                                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                        borderWidth: 2,
+                                        tension: 0.3
+                                    }
+                                ]
+                            },
+                            options: {
+                                responsive: true,
+                                scales: {
+                                    y: {
+                                        beginAtZero: true // Y-axis শুরু হবে শূন্য থেকে
+                                    }
+                                }
+                            }
+                        });
+                    })
+                    .catch(error => console.error('Error loading chart data:', error));  // Error handling
+            </script>
+
         </div>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        loadCustomers();
-        loadChart();
+    let currentPage = 1;
 
-        // তারিখ পরিবর্তন হলে নতুন ডেটা লোড হবে
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initially load customers
+        loadCustomers();
+
+        // When date is changed, load customers based on the selected date
         document.getElementById('date').addEventListener('change', function () {
-            loadCustomers(this.value);
+            loadCustomers(1, this.value); // Reset to page 1 when date is changed
         });
     });
 
-    function loadCustomers(date = '') {
-        fetch("{{ route('customer.list') }}?date=" + date)
+    // Function to load customers and handle pagination
+    function loadCustomers(page = 1, date = '') {
+        fetch("{{ route('customer.list') }}?date=" + date + "&page=" + page)
             .then(response => response.json())
             .then(data => {
                 let customerTableBody = document.getElementById('customerTableBody');
-                customerTableBody.innerHTML = '';
+                customerTableBody.innerHTML = '';  // Clear the table
 
-                data.customers.forEach(customer => {
-                    customerTableBody.innerHTML += `
-                        <tr>
-                            <td>${customer.name}</td>
-                            <td>${customer.email}</td>
-                            <td>${customer.date}</td>
-                        </tr>
-                    `;
-                });
+                if (data.customers && data.customers.length > 0) {
+                    data.customers.forEach((customer, index) => {
+                        // Format the date
+                        let formattedDate = new Date(customer.date).toLocaleDateString();
+
+                        customerTableBody.innerHTML += `
+                            <tr>
+                                <td>${(data.current_page - 1) * 5 + index + 1}</td>
+                                <td>${customer.name}</td>
+                                <td>${customer.email}</td>
+                                <td>${formattedDate}</td>
+                            </tr>
+                        `;
+                    });
+                } else {
+                    customerTableBody.innerHTML = `<tr><td colspan="4" class="text-center">No customers found.</td></tr>`;
+                }
+
+                // Update pagination controls
+                updatePagination(data.current_page, data.last_page);
             });
     }
 
-    function loadChart() {
-        fetch("{{ route('customer.chart') }}")
-            .then(response => response.json())
-            .then(data => {
-                let ctx = document.getElementById('customerChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: data.dates,
-                        datasets: [{
-                            label: 'New Customers',
-                            data: data.counts,
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderWidth: 2,
-                            fill: true
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            });
+    // Function to update the pagination controls
+    function updatePagination(currentPage, lastPage) {
+        let paginationControls = document.getElementById('paginationControls');
+        paginationControls.innerHTML = '';
+
+        if (currentPage > 1) {
+            paginationControls.innerHTML += `<button class="btn btn-primary" onclick="loadCustomers(${currentPage - 1})">Previous</button>`;
+        }
+
+        if (currentPage < lastPage) {
+            paginationControls.innerHTML += `<button class="btn btn-primary" onclick="loadCustomers(${currentPage + 1})">Next</button>`;
+        }
     }
 </script>
 @endsection

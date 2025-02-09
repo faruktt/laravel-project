@@ -214,3 +214,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: modularize frontend navbar links`
 - **Details**: Extracted repetitive navigation markup into shared component.
 
+### 2025-02-09 10:52
+- **Commit**: `feat: add export button placeholder on customer table`
+- **Details**: Prepared UI hook for CSV and Excel customer export.
+

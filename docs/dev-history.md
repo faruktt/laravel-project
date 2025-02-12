@@ -234,3 +234,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: extract customer statistics query to repository`
 - **Details**: Moved raw count queries out of controller into reusable scope.
 
+### 2025-02-12 11:30
+- **Commit**: `docs: update customer chart data schema documentation`
+- **Details**: Specified JSON format for monthly guest acquisition metrics.
+

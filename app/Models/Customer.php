@@ -12,9 +12,19 @@ class Customer extends Model
         'total_price', 'payment', 'insufficient_balance', 'status'
     ];
 
-    public function Roomname()
+    /**
+     * Standard Eloquent relationship to Room
+     */
+    public function room()
     {
         return $this->belongsTo(Room::class, 'room_id', 'id');
     }
 
+    /**
+     * Legacy relationship accessor preserved for backwards compatibility
+     */
+    public function Roomname()
+    {
+        return $this->room();
+    }
 }

@@ -20,4 +20,14 @@ class Room extends Model
     {
         return $this->belongsTo(Type::class, 'type_id', 'id');
     }
+
+    public function roomStatus()
+    {
+        return $this->belongsTo(Roomstatus::class, 'status_id', 'id');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('status', 1);
+    }
 }

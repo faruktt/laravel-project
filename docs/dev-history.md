@@ -250,3 +250,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: adjust dashboard revenue widget color palette`
 - **Details**: Updated KPI card styles with high-contrast badge colors.
 
+### 2025-02-16 14:18
+- **Commit**: `feat: add room amenities list schema`
+- **Details**: Prepared metadata schema for Wi-Fi, AC, and breakfast inclusions.
+

@@ -9,47 +9,74 @@ class RoomController extends Controller
 {
     public function index()
     {
-        return response()->json(
-            Room::with(['type'])->get()
-        );
+        return response()->json([
+            'status' => true,
+            'data'   => Room::with(['type', 'roomStatus'])->get()
+        ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'type_id' => 'required',
-            'status_id' => 'required',
-            'room_no' => 'required',
-            'price' => 'required'
+        $validated = $request->validate([
+            'type_id'   => 'required|integer',
+            'status_id' => 'required|integer',
+            'room_no'   => 'required',
+            'capacity'  => 'nullable|integer',
+            'price'     => 'required|numeric',
+            'view'      => 'nullable|string',
+            'status'    => 'nullable|integer',
         ]);
 
-        $room = Room::create($request->all());
+        $room = Room::create($validated);
 
         return response()->json([
-            'status' => true,
-            'data' => $room
-        ]);
+            'status'  => true,
+            'message' => 'Room created successfully',
+            'data'    => $room->load(['type', 'roomStatus'])
+        ], 201);
     }
 
     public function show($id)
     {
-        return response()->json(
-            Room::with(['type'])->findOrFail($id)
-        );
+        $room = Room::with(['type', 'roomStatus'])->findOrFail($id);
+
+        return response()->json([
+            'status' => true,
+            'data'   => $room
+        ]);
     }
 
     public function update(Request $request, $id)
     {
         $room = Room::findOrFail($id);
-        $room->update($request->all());
+        
+        $validated = $request->validate([
+            'type_id'   => 'sometimes|required|integer',
+            'status_id' => 'sometimes|required|integer',
+            'room_no'   => 'sometimes|required',
+            'capacity'  => 'nullable|integer',
+            'price'     => 'sometimes|required|numeric',
+            'view'      => 'nullable|string',
+            'status'    => 'nullable|integer',
+        ]);
 
-        return response()->json($room);
+        $room->update($validated);
+
+        return response()->json([
+            'status'  => true,
+            'message' => 'Room updated successfully',
+            'data'    => $room->fresh(['type', 'roomStatus'])
+        ]);
     }
 
     public function destroy($id)
     {
-        Room::findOrFail($id)->delete();
+        $room = Room::findOrFail($id);
+        $room->delete();
 
-        return response()->json(['message' => 'Deleted']);
+        return response()->json([
+            'status'  => true,
+            'message' => 'Room deleted successfully'
+        ]);
     }
 }

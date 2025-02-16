@@ -254,3 +254,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room amenities list schema`
 - **Details**: Prepared metadata schema for Wi-Fi, AC, and breakfast inclusions.
 
+### 2025-02-16 15:20
+- **Commit**: `refactor: simplify auth middleware checks on admin routes`
+- **Details**: Consolidated route middleware definitions into clean group.
+

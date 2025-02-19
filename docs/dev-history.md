@@ -270,3 +270,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: ensure soft deleted rooms are excluded from bookings`
 - **Details**: Added global query check to prevent booking deactivated rooms.
 
+### 2025-02-19 17:39
+- **Commit**: `feat: implement customer check-out reminder notice`
+- **Details**: Added notification trigger for guests checking out today.
+

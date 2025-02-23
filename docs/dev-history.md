@@ -286,3 +286,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add guest count validation against room capacity`
 - **Details**: Prevent booking if requested persons exceed maximum room capacity.
 
+### 2025-02-23 10:47
+- **Commit**: `fix: handle zero-price exception in room creation`
+- **Details**: Added minimum value constraint on room price input.
+

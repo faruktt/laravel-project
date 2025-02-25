@@ -294,3 +294,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: improve modal popup transitions for room editing`
 - **Details**: Smooth CSS transitions for editing room details.
 
+### 2025-02-25 11:11
+- **Commit**: `feat: add daily check-in summary widget on dashboard`
+- **Details**: Quick overview widget showing today's expected arrivals.
+

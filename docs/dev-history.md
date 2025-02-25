@@ -302,3 +302,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: standardize JSON responses across all API controllers`
 - **Details**: Enveloped data, status, and message keys uniformly.
 
+### 2025-02-25 14:23
+- **Commit**: `docs: update database schema migration sequence notes`
+- **Details**: Documented foreign key dependencies for smooth fresh migrations.
+

@@ -314,3 +314,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: sanitize guest name input to prevent special character issues`
 - **Details**: Stripped unsupported symbols from customer registration.
 
+### 2025-02-27 17:45
+- **Commit**: `feat: add automated invoice numbering prefix helper`
+- **Details**: Formatted invoice identifiers with year and sequential code.
+

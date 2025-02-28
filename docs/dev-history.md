@@ -322,3 +322,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: adjust mobile responsiveness for room cards`
 - **Details**: Optimized flexbox wrapping for tablet and mobile viewports.
 
+### 2025-02-28 12:45
+- **Commit**: `feat: implement room status filter in dashboard`
+- **Details**: Added query filter for active and maintenance room statuses.
+

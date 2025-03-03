@@ -342,3 +342,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room pricing helper functions`
 - **Details**: Created utility method to compute seasonal room rates.
 
+### 2025-03-03 19:13
+- **Commit**: `style: improve room listing table layout`
+- **Details**: Refined responsive spacing and badge alignment in blade view.
+

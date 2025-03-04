@@ -346,3 +346,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: improve room listing table layout`
 - **Details**: Refined responsive spacing and badge alignment in blade view.
 
+### 2025-03-04 10:27
+- **Commit**: `feat: implement room search by capacity`
+- **Details**: Added dropdown filter for single, double, and deluxe capacity.
+

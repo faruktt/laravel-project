@@ -382,3 +382,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: add setup instructions for local MySQL database`
 - **Details**: Updated development prerequisites with database configuration tips.
 
+### 2025-03-09 15:24
+- **Commit**: `fix: prevent duplicate contact message submissions`
+- **Details**: Added form submission debounce and rate limit validation.
+

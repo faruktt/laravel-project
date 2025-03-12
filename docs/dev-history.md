@@ -390,3 +390,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: enhance room type description field validation`
 - **Details**: Added character length constraints and sanitation rules.
 
+### 2025-03-12 15:22
+- **Commit**: `refactor: extract customer statistics query to repository`
+- **Details**: Moved raw count queries out of controller into reusable scope.
+

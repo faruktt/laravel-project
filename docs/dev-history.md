@@ -398,3 +398,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: update customer chart data schema documentation`
 - **Details**: Specified JSON format for monthly guest acquisition metrics.
 
+### 2025-03-13 18:30
+- **Commit**: `feat: add quick status toggle for available rooms`
+- **Details**: Administrative shortcut to switch room between vacant and cleaning.
+

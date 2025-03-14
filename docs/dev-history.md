@@ -402,3 +402,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add quick status toggle for available rooms`
 - **Details**: Administrative shortcut to switch room between vacant and cleaning.
 
+### 2025-03-14 10:12
+- **Commit**: `fix: correct typo in customer invoice address label`
+- **Details**: Fixed label spelling and formatted postal address block.
+

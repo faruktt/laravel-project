@@ -422,3 +422,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: document invoice PDF printing workflow`
 - **Details**: Detailed browser print styling rules for A4 invoice layouts.
 
+### 2025-03-19 16:05
+- **Commit**: `feat: add search input debounce on customer directory`
+- **Details**: Improved UX when searching customer records by name or phone.
+

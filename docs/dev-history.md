@@ -438,3 +438,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: optimize asset loading in master blade layout`
 - **Details**: Preloaded Google Fonts and deferred non-critical JS assets.
 
+### 2025-03-23 11:37
+- **Commit**: `docs: add room status transition state machine diagram`
+- **Details**: Documented valid room status transitions to prevent invalid states.
+

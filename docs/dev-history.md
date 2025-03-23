@@ -442,3 +442,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: add room status transition state machine diagram`
 - **Details**: Documented valid room status transitions to prevent invalid states.
 
+### 2025-03-23 14:47
+- **Commit**: `feat: add guest count validation against room capacity`
+- **Details**: Prevent booking if requested persons exceed maximum room capacity.
+

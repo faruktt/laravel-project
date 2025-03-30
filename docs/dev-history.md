@@ -466,3 +466,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: update database schema migration sequence notes`
 - **Details**: Documented foreign key dependencies for smooth fresh migrations.
 
+### 2025-03-30 13:37
+- **Commit**: `feat: add room availability calendar view helper`
+- **Details**: Built date range overlap checker for existing reservations.
+

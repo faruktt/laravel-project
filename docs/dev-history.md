@@ -470,3 +470,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room availability calendar view helper`
 - **Details**: Built date range overlap checker for existing reservations.
 
+### 2025-03-30 17:55
+- **Commit**: `fix: sanitize guest name input to prevent special character issues`
+- **Details**: Stripped unsupported symbols from customer registration.
+

@@ -474,3 +474,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: sanitize guest name input to prevent special character issues`
 - **Details**: Stripped unsupported symbols from customer registration.
 
+### 2025-04-01 17:54
+- **Commit**: `feat: add customer checkout invoice print layout`
+- **Details**: Enhanced printable layout with hotel logo and guest breakdown.
+

@@ -482,3 +482,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: add room maintenance checklist guidelines`
 - **Details**: Documented standard maintenance and housekeeping procedures.
 
+### 2025-04-03 18:47
+- **Commit**: `refactor: optimize customer reservation date query`
+- **Details**: Indexed from_date and until_date queries for faster lookups.
+

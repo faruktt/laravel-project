@@ -498,3 +498,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: adjust dashboard quick actions toolbar`
 - **Details**: Improved spacing and button contrast in admin dashboard.
 
+### 2025-04-05 15:30
+- **Commit**: `feat: add customer review rating placeholder`
+- **Details**: Prepared schema for guest ratings and feedback submission.
+

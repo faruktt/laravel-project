@@ -506,3 +506,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: document room status notification triggers`
 - **Details**: Detailed automated notification flow upon room status updates.
 
+### 2025-04-08 16:06
+- **Commit**: `refactor: clean up unused blade partials`
+- **Details**: Removed obsolete modal templates and redundant styling.
+

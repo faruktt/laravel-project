@@ -510,3 +510,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: clean up unused blade partials`
 - **Details**: Removed obsolete modal templates and redundant styling.
 
+### 2025-04-09 10:27
+- **Commit**: `feat: add phone number country code dropdown support`
+- **Details**: Added international prefix selector for foreign guests.
+

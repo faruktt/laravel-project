@@ -538,3 +538,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room pricing seasonal discount calculator`
 - **Details**: Introduced discount percentage applicator for special holidays.
 
+### 2025-04-14 16:48
+- **Commit**: `style: update status badges with subtle border-radius`
+- **Details**: Modernized pill badges with consistent tailwind tokens.
+

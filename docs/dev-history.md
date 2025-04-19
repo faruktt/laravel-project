@@ -566,3 +566,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: ensure room capacity cannot be set to negative`
 - **Details**: Added min:1 validation rule on room creation form.
 
+### 2025-04-19 19:26
+- **Commit**: `style: enhance dashboard stat cards with hover elevation`
+- **Details**: Added smooth shadow transitions on dashboard overview metrics.
+

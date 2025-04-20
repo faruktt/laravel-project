@@ -570,3 +570,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: enhance dashboard stat cards with hover elevation`
 - **Details**: Added smooth shadow transitions on dashboard overview metrics.
 
+### 2025-04-20 12:31
+- **Commit**: `feat: add room view filter (Sea View, City View, Garden View)`
+- **Details**: Added quick view filter buttons to customer search interface.
+

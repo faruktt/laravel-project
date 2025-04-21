@@ -574,3 +574,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room view filter (Sea View, City View, Garden View)`
 - **Details**: Added quick view filter buttons to customer search interface.
 
+### 2025-04-21 12:47
+- **Commit**: `refactor: simplify Eloquent queries in ViewcustomerController`
+- **Details**: Streamlined customer listing queries with scopes.
+

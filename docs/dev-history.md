@@ -578,3 +578,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: simplify Eloquent queries in ViewcustomerController`
 - **Details**: Streamlined customer listing queries with scopes.
 
+### 2025-04-21 16:52
+- **Commit**: `docs: document customer reservation status lifecycle`
+- **Details**: Added flow chart for reserved -> confirmed -> checked_in -> checked_out.
+

@@ -582,3 +582,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: document customer reservation status lifecycle`
 - **Details**: Added flow chart for reserved -> confirmed -> checked_in -> checked_out.
 
+### 2025-04-22 10:29
+- **Commit**: `feat: add automated SMS notification hook for bookings`
+- **Details**: Prepared event listener hook for SMS gateway integration.
+

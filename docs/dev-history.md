@@ -586,3 +586,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add automated SMS notification hook for bookings`
 - **Details**: Prepared event listener hook for SMS gateway integration.
 
+### 2025-04-22 19:24
+- **Commit**: `fix: sanitize customer special notes input`
+- **Details**: Prevented HTML tag injection in special requests field.
+

@@ -598,3 +598,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add customer checkout invoice print layout`
 - **Details**: Enhanced printable layout with hotel logo and guest breakdown.
 
+### 2025-04-23 17:12
+- **Commit**: `docs: add room maintenance checklist guidelines`
+- **Details**: Documented standard maintenance and housekeeping procedures.
+

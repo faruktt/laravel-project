@@ -590,3 +590,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: sanitize customer special notes input`
 - **Details**: Prevented HTML tag injection in special requests field.
 
+### 2025-04-23 15:13
+- **Commit**: `feat: add date picker restriction for past dates`
+- **Details**: Configured JS datepicker to disable check-in dates prior to today.
+

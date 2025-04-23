@@ -594,3 +594,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add date picker restriction for past dates`
 - **Details**: Configured JS datepicker to disable check-in dates prior to today.
 
+### 2025-04-23 16:26
+- **Commit**: `feat: add customer checkout invoice print layout`
+- **Details**: Enhanced printable layout with hotel logo and guest breakdown.
+

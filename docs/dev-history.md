@@ -610,3 +610,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: handle edge case in customer booking balance`
 - **Details**: Fixed calculation when partial advance payment is applied.
 
+### 2025-04-27 18:52
+- **Commit**: `feat: add room occupancy analytics helper`
+- **Details**: Added computation method for monthly occupancy rate.
+

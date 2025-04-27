@@ -606,3 +606,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: optimize customer reservation date query`
 - **Details**: Indexed from_date and until_date queries for faster lookups.
 
+### 2025-04-27 10:27
+- **Commit**: `fix: handle edge case in customer booking balance`
+- **Details**: Fixed calculation when partial advance payment is applied.
+

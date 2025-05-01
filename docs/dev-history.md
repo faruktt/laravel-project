@@ -622,3 +622,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add customer review rating placeholder`
 - **Details**: Prepared schema for guest ratings and feedback submission.
 
+### 2025-05-01 19:11
+- **Commit**: `docs: document room status notification triggers`
+- **Details**: Detailed automated notification flow upon room status updates.
+

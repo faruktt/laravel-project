@@ -638,3 +638,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: resolve minor padding misalignment on invoice table`
 - **Details**: Corrected CSS padding in invoice totals section.
 
+### 2025-05-06 19:10
+- **Commit**: `test: add test coverage for customer stay duration calculation`
+- **Details**: Verified date difference logic across month transitions.
+

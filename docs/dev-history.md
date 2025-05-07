@@ -642,3 +642,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `test: add test coverage for customer stay duration calculation`
 - **Details**: Verified date difference logic across month transitions.
 
+### 2025-05-07 10:17
+- **Commit**: `feat: add room cleaning schedule manager`
+- **Details**: Added helper to track rooms due for housekeeping.
+

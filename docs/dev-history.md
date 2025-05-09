@@ -646,3 +646,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add room cleaning schedule manager`
 - **Details**: Added helper to track rooms due for housekeeping.
 
+### 2025-05-09 11:10
+- **Commit**: `docs: update API documentation for customer endpoints`
+- **Details**: Documented query params for filtering customers by date range.
+

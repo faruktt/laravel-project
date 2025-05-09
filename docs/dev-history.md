@@ -650,3 +650,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: update API documentation for customer endpoints`
 - **Details**: Documented query params for filtering customers by date range.
 
+### 2025-05-09 16:40
+- **Commit**: `refactor: improve query performance on invoice listing`
+- **Details**: Eager loaded customer relation to eliminate N+1 queries.
+

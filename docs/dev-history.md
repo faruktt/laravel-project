@@ -654,3 +654,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: improve query performance on invoice listing`
 - **Details**: Eager loaded customer relation to eliminate N+1 queries.
 
+### 2025-05-11 19:13
+- **Commit**: `feat: add room pricing seasonal discount calculator`
+- **Details**: Introduced discount percentage applicator for special holidays.
+

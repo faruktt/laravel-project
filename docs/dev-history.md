@@ -662,3 +662,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `style: update status badges with subtle border-radius`
 - **Details**: Modernized pill badges with consistent tailwind tokens.
 
+### 2025-05-14 18:26
+- **Commit**: `fix: prevent double booking on same room and dates`
+- **Details**: Added validation rule to reject overlapping active bookings.
+

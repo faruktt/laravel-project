@@ -670,3 +670,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add bulk notification mark-as-read helper`
 - **Details**: Added controller method to clear all unread admin alerts.
 
+### 2025-05-15 12:43
+- **Commit**: `refactor: structure frontend assets and optimize script loading`
+- **Details**: Cleaned up asset bundle imports in main layout.
+

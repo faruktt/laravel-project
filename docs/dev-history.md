@@ -666,3 +666,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `fix: prevent double booking on same room and dates`
 - **Details**: Added validation rule to reject overlapping active bookings.
 
+### 2025-05-15 10:55
+- **Commit**: `feat: add bulk notification mark-as-read helper`
+- **Details**: Added controller method to clear all unread admin alerts.
+

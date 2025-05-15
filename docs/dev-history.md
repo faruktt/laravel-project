@@ -674,3 +674,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `refactor: structure frontend assets and optimize script loading`
 - **Details**: Cleaned up asset bundle imports in main layout.
 
+### 2025-05-15 19:26
+- **Commit**: `docs: add guide for database backup and restore`
+- **Details**: Wrote step-by-step instructions for SQLite/MySQL dump routines.
+

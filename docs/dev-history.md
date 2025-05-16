@@ -678,3 +678,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `docs: add guide for database backup and restore`
 - **Details**: Wrote step-by-step instructions for SQLite/MySQL dump routines.
 
+### 2025-05-16 10:28
+- **Commit**: `feat: add customer loyalty points tracker placeholder`
+- **Details**: Structured database fields for repeat guest reward points.
+

@@ -682,3 +682,7 @@ Continuous progress, architecture milestones, and module improvements for the Ho
 - **Commit**: `feat: add customer loyalty points tracker placeholder`
 - **Details**: Structured database fields for repeat guest reward points.
 
+### 2025-05-17 17:25
+- **Commit**: `fix: ensure room capacity cannot be set to negative`
+- **Details**: Added min:1 validation rule on room creation form.
+

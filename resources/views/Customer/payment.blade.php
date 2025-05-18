@@ -69,14 +69,11 @@
 
 <script>
     function calculateBalance() {
-        // Get the original insufficient balance from the input field
+    
         let initialBalance = parseFloat("{{ $customer->insufficient_balance }}") || 0;
         let payment = parseFloat(document.getElementById('payment').value) || 0;
 
-        // Calculate the new insufficient balance
         let newBalance = initialBalance - payment;
-
-        // Update the balance field
         document.getElementById('balance').value = newBalance < 0 ? 0 : newBalance;
     }
 </script>

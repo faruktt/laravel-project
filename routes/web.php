@@ -54,4 +54,8 @@ Route::middleware('auth')->group(function () {
 
 });
 
+Route::middleware(['role:superAdmin'])->group(function () {
+
+});
+
 require __DIR__.'/auth.php';

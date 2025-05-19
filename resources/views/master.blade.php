@@ -249,7 +249,8 @@ body {
         </div>
     </div>
 
-
+ <!-- Trigger Button -->
+<!-- Floating Button -->
 <div class="position-fixed" style="bottom: 50%; right: -2px;">
     <button id="settingsBtn" class="btn btn-primary shadow" style="width: 50px; height: 50px;">
         <i class="fas fa-cog"></i>

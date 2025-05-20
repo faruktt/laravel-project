@@ -48,12 +48,12 @@
 
                         let ctx = document.getElementById('customerChart').getContext('2d');
                         new Chart(ctx, {
-                            type: 'line',  // Line chart type
+                            type: 'line',
                             data: {
-                                labels: labels,  // X-axis: Dates
+                                labels: labels,
                                 datasets: [
                                     {
-                                        label: 'Total Customers',  // First line: Total Customers
+                                        label: 'Total Customers',
                                         data: totalCustomers,
                                         borderColor: 'rgba(54, 162, 235, 1)',
                                         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -90,13 +90,13 @@
                                 responsive: true,
                                 scales: {
                                     y: {
-                                        beginAtZero: true // Y-axis শুরু হবে শূন্য থেকে
+                                        beginAtZero: true
                                     }
                                 }
                             }
                         });
                     })
-                    .catch(error => console.error('Error loading chart data:', error));  // Error handling
+                    .catch(error => console.error('Error loading chart data:', error)); 
             </script>
 
         </div>

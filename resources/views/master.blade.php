@@ -257,9 +257,6 @@ body {
     </button>
 </div>
 
-
-
-
 <!-- Sidebar -->
 <div id="side" class="side">
     <div class="side-header">

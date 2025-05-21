@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Notification extends Model
 {
     protected $fillable = [
-        'user_id',  // ✅ এখানে `user_id` যোগ করুন
+        'user_id', 
         'message',
         'link',
-        'status', // যদি `read` ফিল্ড থাকে, তাহলে এটাও যোগ করুন
+        'status',
     ];
 }

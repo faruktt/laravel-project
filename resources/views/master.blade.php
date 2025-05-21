@@ -15,7 +15,7 @@
             font-family: Arial, sans-serif;
         }
         .header {
-            background-color: #fb5a2d;
+            background-color: #f9d0c5;
             color: rgb(253, 250, 250);
             padding: 10px 20px;
             display: flex;
@@ -226,7 +226,7 @@ body {
     <div class="header">
         <div class="logo">
             <img src="{{ asset('images/a.jpg') }}" alt="Logo">
-            <h5 class="mb-0">Hotel
+            <h5 class="mb-0">FARUK
 
             </h5>
         </div>

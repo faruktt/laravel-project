@@ -12,6 +12,7 @@ class Customer extends Model
         'total_price', 'payment', 'insufficient_balance', 'status'
     ];
 
+    
     public function Roomname()
     {
         return $this->belongsTo(Room::class, 'room_id', 'id');

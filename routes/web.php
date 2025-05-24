@@ -8,6 +8,7 @@ use App\Http\Controllers\viewcustomerController;
 use App\Http\Controllers\RoomstatusController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CustomerChartController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('room', RoomController::class);
     Route::get('/room/{id}/activate', [RoomController::class, 'activate'])->name('room.activate');
     Route::get('/room/{id}/deactivate', [RoomController::class, 'deactivate'])->name('room.deactivate');
+    Route::resource('payment', PaymentController::class);
+    Route::get('/payment/{id}/activate', [PaymentController::class, 'activate'])->name('payment.activate');
+    Route::get('/payment/{id}/deactivate', [PaymentController::class, 'deactivate'])->name('payment.deactivate');
 
     Route::resource('type', TypeController::class);
     Route::get('/type/{id}/activate', [TypeController::class, 'activate'])->name('type.activate');

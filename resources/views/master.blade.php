@@ -392,6 +392,13 @@ body {
                         </a>
                     </div>
                 </div>
+                <div class="card {{ request()->is('payment') ? 'active-link' : '' }}">
+                    <div class="card-body text-center">
+                        <a href="{{ route('payment.index')}}" title="Reports">
+                            <i class="fas fa-chart-line"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Content -->

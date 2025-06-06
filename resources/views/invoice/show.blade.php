@@ -58,9 +58,7 @@
                                         <td>Day</td>
                                     </tr>
                                     <tr class="content">
-                                        <td class="font-weight-bold"> {{ $customer->from_date}}</td>
-                                        <td class="font-weight-bold"> {{$customer->until_date}}</td>
-                                        <td class="font-weight-bold">{{$customer->days}} Days</td>
+                               
                                     </tr>
                                 </tbody>
                             </table>

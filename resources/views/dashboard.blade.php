@@ -16,12 +16,7 @@
 
             <table class="table table-bordered">
                 <thead>
-                    <tr>
-                        <th>SL</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date</th>
-                    </tr>
+                  
                 </thead>
                 <tbody id="customerTableBody">
                     <!-- Data will be loaded dynamically -->

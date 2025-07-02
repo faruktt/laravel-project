@@ -3,7 +3,7 @@
 @section('content')
 <div class="container mt-4">
     <div class="row">
-        <!-- বাম পাশে কাস্টমার লিস্ট -->
+
         <div class="col-md-6">
             <h4>Customer List</h4>
             <form id="filterForm" class="mb-3">
@@ -13,7 +13,7 @@
 
 
 
-            
+
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -30,19 +30,19 @@
 
             <!-- Pagination controls -->
             <div id="paginationControls">
-                <!-- Pagination will be dynamically inserted here -->
+
             </div>
         </div>
 
-        <!-- ডান পাশে চার্ট -->
+
         <div class="col-md-6">
             <h4>Customer Growth Chart</h4>
             <canvas id="customerChart"></canvas>
             <script>
-                fetch('/customer-data')  // Controller থেকে ডেটা ফেচ করা হচ্ছে
+                fetch('/customer-data')
                     .then(response => response.json())
                     .then(data => {
-                        // Data থেকে labels এবং datasets আলাদা করা হচ্ছে
+
                         let labels = data.map(item => item.date);
                         let totalCustomers = data.map(item => item.total_customers);
                         let totalPrice = data.map(item => item.total_price);
@@ -56,7 +56,7 @@
                                 labels: labels,  // X-axis: Dates
                                 datasets: [
                                     {
-                                        label: 'Total Customers',  // First line: Total Customers
+                                        label: 'Total Customers',  
                                         data: totalCustomers,
                                         borderColor: 'rgba(54, 162, 235, 1)',
                                         backgroundColor: 'rgba(54, 162, 235, 0.2)',

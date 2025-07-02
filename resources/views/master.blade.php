@@ -181,7 +181,7 @@
         </div>
     </div>
     <!-- Notification Modal -->
-    
+
 <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -192,7 +192,7 @@
             <div class="modal-body" id="notificationBody" style="max-height: 400px; overflow-y: auto;">
 
 
-                <!-- নোটিফিকেশন লোড হবে এখানে -->
+                <!-- notification loading -->
             </div>
             <div class="modal-footer">
 

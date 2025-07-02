@@ -233,7 +233,7 @@
                 let notificationModal = new bootstrap.Modal(document.getElementById("notificationModal"));
                 notificationModal.show();
 
-                // নোটিফিকেশন পড়ার পর ব্যাজ আপডেট করতে সার্ভারে পাঠাও
+                
                 markNotificationsAsRead();
             });
     }

@@ -226,14 +226,14 @@
                 });
                 notificationList += '</ul>';
 
-                // Modal-এর body-তে নোটিফিকেশন সেট করুন
+                
                 document.getElementById("notificationBody").innerHTML = notificationList;
 
                 // Modal ওপেন করুন
                 let notificationModal = new bootstrap.Modal(document.getElementById("notificationModal"));
                 notificationModal.show();
 
-                
+
                 markNotificationsAsRead();
             });
     }

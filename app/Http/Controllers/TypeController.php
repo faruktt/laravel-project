@@ -8,7 +8,7 @@ use App\Models\Type;
 class TypeController extends Controller
 {
     public function index(Request $request){
-        $allType = Type::all();
+        $allType = Type::paginate(5);
         return view('Type.index',compact('allType'));
     }
 
@@ -34,6 +34,25 @@ class TypeController extends Controller
     } else {
         return redirect()->back()->with('error', 'Failed to add type.');
     }
+}
+
+
+public function activate($id)
+{
+    $type = Type::find($id);
+    $type->status = 1;  // Change status to active
+    $type->save();
+
+    return redirect()->route('type.index')->with('success', 'type Activated');
+}
+
+public function deactivate($id)
+{
+    $type = Type::find($id);
+    $type->status = 0;
+    $type->save();
+
+    return redirect()->route('type.index')->with('success', 'type Deactivated');
 }
 
 

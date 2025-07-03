@@ -1,13 +1,8 @@
 @extends('master')
 
 @section('content')
- 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
@@ -111,92 +106,11 @@
                             <span class="bubble"></span> Confirmation
                         </li>
                     </ul>
-=======
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h3>Customer({{ $allCustomer }})</h3>
-                     <div class="mb-0">
-                        <!-- Search Box -->
-                     <form method="GET" action="{{ route('customer.index') }}" class="mb-3">
-                        <div class="input-group">
-                            <input type="text" name="phone" class="form-control" placeholder="Search By Phone Number" value="{{ request('phone') }}">
-                            <button class="btn btn-" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </form>
-                     </div>
-                    <a class="btn btn-success btn-sm" href="{{ route('customer.create') }}">
-                        <i class="bi bi-plus"></i> Add
-                    </a>
-                </div>
-
-                @if (session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
-
-                @if (session('error'))
-                    <div class="alert alert-danger">{{ session('error') }}</div>
-                @endif
-
-                <div class="card-body">
-
-
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>SL</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Job</th>
-                                <th>Address</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($customers as $key=>$customer)
-                                <tr>
-                                    <td>{{ $key + 1 + (($customers->currentPage() - 1) * $customers->perPage()) }}</td>
-                                    <td>{{ $customer->name }}</td>
-                                    <td>{{ $customer->email }}</td>
-                                    <td>{{ $customer->phone }}</td>
-                                    <td>{{ $customer->job }}</td>
-                                    <td>{{ $customer->address }}</td>
-
-                                    <td>
-                                        @if ($customer->insufficient_balance > 0)
-                                            <a href="{{ route('customer.edit', $customer->id) }}" class="text-success fs-5">
-                                                <i class="fa-solid fa-money-bill-wave"></i>
-                                            </a>
-                                        @else
-                                            <i class="fa-solid fa-money-bill-wave text-secondary fs-5" style="opacity: 0.5; cursor: not-allowed;"></i>
-                                        @endif
-
-                                        <!-- Delete Icon with Form -->
-                                        <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="text-danger" style="background:none; border:none;">
-                                                <i class="fa-solid fa-trash-can" style="color: red; margin-left: 10px;"></i> <!-- added margin-left -->
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    <!-- Pagination -->
-                    <div class="d-flex justify-content-center mt-3">
-                        {{ $customers->links('pagination::bootstrap-5') }}
-                    </div>
->>>>>>> faruk3
                 </div>
             </div>
         </div>
     </div>
 
-<<<<<<< HEAD
     <div class="row">
         <!-- Form Section -->
         <div class="col-md-8">
@@ -247,25 +161,42 @@
                     </div>
 
                   <!-- Step 3: Room Selection -->
-<div id="step-3" class="d-none">
-    <div class="row" id="room-list">
-        @foreach ($rooms as $singleCData)
-            <div class="col-md-4">
-                <div class="card" onclick="selectRoom({{ $singleCData->id }}, {{ $singleCData->price }})">
-                    <div class="card-body">
-                        <h5 class="card-title">Room: {{ $singleCData->room_no }}</h5>
-                        <p class="card-text">Price: {{ $singleCData->price }} BDT</p>
-                        <p class="card-text">Capacity: {{ $singleCData->capacity }} Persons</p>
-                        <p class="card-text">View: {{ $singleCData->view }}</p>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
+                  <div id="step-3" class="d-none">
+                    <div class="row" id="room-list">
+                        @foreach ($rooms as $singleCData)
+                            @php
+                                // বুকড রুম চেক করা
+                                $isBooked = $bookedRooms->has($singleCData->id);
+                                $untilDate = $isBooked ? \Carbon\Carbon::parse($bookedRooms[$singleCData->id]->until_date)->format('d M Y, h:i A') : null;
+                            @endphp
 
-    <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
-    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
-</div>
+                            <div class="col-md-4">
+                                <div class="card {{ $isBooked ? 'border-danger' : '' }}"
+                                     onclick="{{ $isBooked ? '' : 'selectRoom(' . $singleCData->id . ', ' . $singleCData->price . ')'}}">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Room: {{ $singleCData->room_no }}</h5>
+                                        <p class="card-text">Price: {{ $singleCData->price }} BDT</p>
+                                        <p class="card-text">Capacity: {{ $singleCData->capacity }} Persons</p>
+                                        <p class="card-text">View: {{ $singleCData->view }}</p>
+
+                                        @if ($isBooked)
+                                            <p class="card-text text-danger">
+                                                <strong>Booked {{ $untilDate }}</strong>
+                                            </p>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <button type="button" class="btn btn-secondary" onclick="prevStep()">Previous</button>
+                    <button type="button" class="btn btn-primary" onclick="nextStep()">Next</button>
+                </div>
+
+
+
+
 
 <!-- Hidden Input for Selected Room -->
 <input type="hidden" id="selected-room-id" name="room_id">
@@ -437,15 +368,12 @@
 
         let balance = total - payment;
 
-        document.getElementById('balance').value = balance + " BDT";
+
+        document.getElementById('balance').value = balance < 0 ? 0 : balance + " BDT";
     }
 </script>
 
 
 
 
-=======
-    <!-- Add before the closing </body> tag -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> faruk3
 @endsection

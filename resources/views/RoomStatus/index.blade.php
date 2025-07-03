@@ -30,17 +30,42 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $item->roomstatus }}</td>
-                            <td>Active</td>
                             <td>
-                                <a href="#" class="btn btn-primary text-white btn-sm">Edit</a>
-                                <a href="#" class="btn btn-danger text-white btn-sm">Delete</a>
-                                <a href="#" class="btn btn-info text-white btn-sm">Active</a>
+                                @if($item->status == 1)
+                                    <span class="badge bg-success"></i> Active</span>
+                                @else
+                                    <span class="badge bg-danger"></i> Inactive</span>
+                                @endif
+                            </td>
+                            <td>
+                                <!-- Edit Button -->
+                                <a href="" class=" text-white btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+
+                                <!-- Delete Button -->
+                                <a href="" class="btn btn-sm">
+                                    <i class="fas fa-trash-alt text-danger"></i>
+                                </a>
+
+                                @if($item->status == 1)
+                                    <a href="{{ route('roomstatus.deactivate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye-slash text-info"></i>
+                                    </a>
+                                @else
+                                    <a href="{{ route('roomstatus.activate', $item->id) }}" class="btn btn-sm">
+                                        <i class="fa-solid fa-eye text-success"></i>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                         @endforeach
                         <!-- Add dynamic rows here -->
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center mt-3">
+                    {{ $statusData->links('pagination::bootstrap-5') }}
+                </div>
             </div>
         </div>
     </div>

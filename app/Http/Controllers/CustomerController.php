@@ -11,18 +11,18 @@ class CustomerController extends Controller
 {
     public function index(Request $request)
     {
-        // Query তৈরি
+
         $query = Customer::query();
 
-        // যদি phone ফিল্টার থাকে
+
         if ($request->has('phone')) {
             $query->where('phone', 'like', '%' . $request->input('phone') . '%');
         }
 
-        // পেজিনেটেড কাস্টমার ডেটা (5টি করে)
+
         $customers = $query->paginate(6);
 
-        // মোট কাস্টমার সংখ্যা (সার্চের ফলাফলের উপর ভিত্তি করে)
+        
         $allCustomer = Customer::count();
 
         // ভিউতে ডেটা পাঠানো

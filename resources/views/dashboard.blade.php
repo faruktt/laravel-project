@@ -51,12 +51,12 @@
 
                         let ctx = document.getElementById('customerChart').getContext('2d');
                         new Chart(ctx, {
-                            type: 'line',  // Line chart type
+                            type: 'line',  
                             data: {
-                                labels: labels,  // X-axis: Dates
+                                labels: labels,
                                 datasets: [
                                     {
-                                        label: 'Total Customers',  
+                                        label: 'Total Customers',
                                         data: totalCustomers,
                                         borderColor: 'rgba(54, 162, 235, 1)',
                                         backgroundColor: 'rgba(54, 162, 235, 0.2)',

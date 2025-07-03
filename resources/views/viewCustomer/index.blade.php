@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-<!-- Add in the <head> section -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Assume you're passing a $customers variable -->
+
                         @foreach ($customers as $customer)
                             <tr>
                                 <td>{{ $customer->name }}</td>
@@ -57,6 +57,6 @@
 
 
 
- <!-- Add before the closing </body> tag -->
+ 
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

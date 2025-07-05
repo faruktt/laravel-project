@@ -48,7 +48,7 @@ public function activate($id)
 public function deactivate($id)
 {
     $roomstatus = Roomstatus::find($id);
-    $roomstatus->status = 0;  // Change status to inactive
+    $roomstatus->status = 0;  
     $roomstatus->save();
 
     return redirect()->route('roomstatus.index')->with('success', 'roomstatus Deactivated');

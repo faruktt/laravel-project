@@ -14,7 +14,7 @@ class CustomerChartController extends Controller
     }
     public function getCustomerData()
     {
-       
+
         $data = Customer::selectRaw('DATE(created_at) as date,
                                     COUNT(id) as total_customers,
                                     SUM(total_price) as total_price,
@@ -29,12 +29,12 @@ class CustomerChartController extends Controller
 
     public function getCustomerList(Request $request)
     {
-        $date = $request->get('date', ''); // Get the date from the request (empty by default)
+        $date = $request->get('date', ''); 
 
         $query = Customer::query();
 
         if ($date) {
-            $query->whereDate('created_at', $date); // Filter customers by the given date
+            $query->whereDate('created_at', $date);
         }
 
         // Paginate results (5 customers per page)

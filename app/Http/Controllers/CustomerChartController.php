@@ -14,7 +14,7 @@ class CustomerChartController extends Controller
     }
     public function getCustomerData()
     {
-        // এখানে আমরা এক্সট্রা কলাম যেমন: total_customers, total_price ইত্যাদি গণনা করছি
+       
         $data = Customer::selectRaw('DATE(created_at) as date,
                                     COUNT(id) as total_customers,
                                     SUM(total_price) as total_price,

@@ -41,7 +41,7 @@ class CustomerChartController extends Controller
         $customers = $query->paginate(5);
 
         return response()->json([
-            'customers' => $customers->items(),  // Get the items for the current page
+            'customers' => $customers->items(), 
             'current_page' => $customers->currentPage(),
             'last_page' => $customers->lastPage(),
             'total' => $customers->total(),

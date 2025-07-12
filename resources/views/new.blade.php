@@ -5,15 +5,7 @@
         <div class="row">
 
 
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">gg</h5>
-                        <p class="card-text"> Price:$ </p>
-                        <a class="btn btn-primary add-to-cart" href="">Add to Cart</a>
-                    </div>
-                </div>
-            </div>
+          
 
         </div>
     </div>

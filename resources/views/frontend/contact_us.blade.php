@@ -1,4 +1,4 @@
-@extends('frontend.master') 
+@extends('frontend.master') <!-- আপনার মেইন লেআউট ফাইলের নাম -->
 
 @section('content')
 

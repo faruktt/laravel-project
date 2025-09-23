@@ -22,7 +22,17 @@
                     <p class="text-muted mb-5">আপনার যেকোনো প্রশ্ন বা বুকিং সংক্রান্ত তথ্যের জন্য নিচের মাধ্যমগুলোতে আমাদের সাথে যোগাযোগ করতে পারেন।</p>
 
                     <!-- Info Box 1 -->
-                    
+                    <div class="d-flex mb-4">
+                        <div class="flex-shrink-0">
+                            <div class="bg-light p-3 rounded-circle text-center" style="width: 60px; height: 60px;">
+                                <i class="fa-solid fa-location-dot fs-4" style="color: var(--primary-color);"></i>
+                            </div>
+                        </div>
+                        <div class="ms-4">
+                            <h5 class="fw-bold">Our Location</h5>
+                            <p class="text-muted mb-0">House #123, Road #45, Sector #07, Uttara, Dhaka-1230, Bangladesh</p>
+                        </div>
+                    </div>
 
                     <!-- Info Box 2 -->
                     <div class="d-flex mb-4">

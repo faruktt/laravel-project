@@ -2,7 +2,19 @@
 @section('content')
 
 
-
+<section class="hero-section position-relative">
+    <div class="container">
+        <div class="hero-content text-center">
+            <p class="text-uppercase mb-2 animate-up" style="letter-spacing: 5px; font-weight: 300;">Luxury Living in the Heart of the City</p>
+            <h1 class="display-2 mb-4 animate-up" style="font-weight: 700;">Welcome to Your Home <br> Away From Home</h1>
+            <p class="mb-5 animate-up lead">Faruk Guest House – top rated guest house with premium facilities at an affordable price.</p>
+            <div class="animate-up">
+                <a href="{{route('frontend.room')}}" class="btn btn-premium btn-lg me-3">Explore Rooms</a>
+                <a href="{{route('frontend.contact')}}" class="btn btn-outline-light btn-lg">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- 2. Booking Search Bar (Overlay) -->
 <div class="container" style="margin-top: -60px; position: relative; z-index: 99;">

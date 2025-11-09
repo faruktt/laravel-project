@@ -25,7 +25,8 @@ class CustomerController extends Controller
 
         $allCustomer = Customer::count();
 
-        // ভিউতে ডেটা পাঠানো
+      
+        
         return view('Customer.index', compact('customers', 'allCustomer'));
     }
 

@@ -37,6 +37,7 @@ class CustomerChartController extends Controller
             $query->whereDate('created_at', $date);
         }
 
+        
         // Paginate results (5 customers per page)
         $customers = $query->paginate(5);
 

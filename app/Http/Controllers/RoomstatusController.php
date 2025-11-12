@@ -17,15 +17,15 @@ class RoomstatusController extends Controller
     }
 
     public function store(Request $request){
-    // Validate the incoming request
+    
     $request->validate([
         'roomstatus' => 'required',
     ]);
 
-    // Prepare the data to save in the database
+   
     $data = [
         'roomstatus' => $request->input('roomstatus'),
-        'status' => $request->input('status', 'Active'), // Default to 'Active' if not provided
+        'status' => $request->input('status', 'Active'), 
     ];
 
     // Attempt to create the new record

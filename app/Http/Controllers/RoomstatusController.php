@@ -28,7 +28,7 @@ class RoomstatusController extends Controller
         'status' => $request->input('status', 'Active'), 
     ];
 
-    // Attempt to create the new record
+  
     if (Roomstatus::create($data)) {
         return redirect()->back()->with('success', 'Type added successfully!');
     } else {
@@ -39,7 +39,7 @@ class RoomstatusController extends Controller
 public function activate($id)
 {
     $roomstatus = Roomstatus::find($id);
-    $roomstatus->status = 1;  // Change status to active
+    $roomstatus->status = 1; 
     $roomstatus->save();
 
     return redirect()->route('roomstatus.index')->with('success', 'roomstatus Activated');

@@ -33,7 +33,7 @@ class RoomController extends Controller
             'view' => 'required',
         ]);
 
-        // Prepare the data to save in the database
+       
         $data = [
             'type_id' => $request->input('type_id'),
             'status_id' => $request->input('status_id'),
@@ -41,11 +41,11 @@ class RoomController extends Controller
             'capacity' => $request->input('capacity'),
             'price' => $request->input('price'),
             'view' => $request->input('view'),
-            'status' => $request->input('status', '1'), // Default to 'Active' if not provided
+            'status' => $request->input('status', '1'), 
         ];
 
 
-        // Attempt to create the new record
+
         if (Room::create($data)) {
             return redirect()->back()->with('success', 'Type added successfully!');
         } else {
@@ -56,7 +56,7 @@ class RoomController extends Controller
     public function activate($id)
     {
         $room = Room::find($id);
-        $room->status = 1;  // Change status to active
+        $room->status = 1;  
         $room->save();
 
         return redirect()->route('room.index')->with('success', 'Room Activated');
@@ -65,7 +65,7 @@ class RoomController extends Controller
     public function deactivate($id)
     {
         $room = Room::find($id);
-        $room->status = 0;  // Change status to inactive
+        $room->status = 0;  
         $room->save();
 
         return redirect()->route('room.index')->with('success', 'Room Deactivated');

@@ -38,7 +38,7 @@ class CustomerChartController extends Controller
         }
 
         
-        // Paginate results (5 customers per page)
+        
         $customers = $query->paginate(5);
 
         return response()->json([

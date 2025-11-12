@@ -19,14 +19,11 @@ class CustomerController extends Controller
             $query->where('phone', 'like', '%' . $request->input('phone') . '%');
         }
 
-
         $customers = $query->paginate(6);
 
 
         $allCustomer = Customer::count();
 
-      
-        
         return view('Customer.index', compact('customers', 'allCustomer'));
     }
 

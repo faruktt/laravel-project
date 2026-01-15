@@ -81,7 +81,7 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                    <form action="{{route('contact.send')}}" method="POST"> <!-- এখানে আপনার কন্ট্রোলারের রুট দিবেন -->
+                    <form action="{{route('contact.send')}}" method="POST">
                         @csrf
                         <div class="row g-4">
                             <div class="col-md-6">

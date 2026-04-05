@@ -20,47 +20,21 @@
         </div>
         <div class="row g-4">
             <!-- Category 1 -->
+            @foreach ($allRoomData as $item)
             <div class="col-md-4">
                 <div class="card category-card">
                     <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Deluxe Room">
                     <div class="card-body p-4">
-                        <h4 class="card-title">Deluxe Couple Room</h4>
-                        <p class="card-text text-muted">Perfect for couples with AC and high-speed WiFi.</p>
+                        <h4 class="card-title">{{ $item->room_no }}</h4>
+                        <p class="card-text text-muted">{{ $item->type->type }}</p>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span class="price-tag">৳ 2,500 / Night</span>
+                            <span class="price-tag">৳ {{ $item->price }} / Night</span>
                             <a href="#" class="btn btn-outline-dark btn-sm">Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Category 2 -->
-            <div class="col-md-4">
-                <div class="card category-card">
-                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Executive Suite">
-                    <div class="card-body p-4">
-                        <h4 class="card-title">Executive Suite</h4>
-                        <p class="card-text text-muted">A luxury stay with premium balcony view and mini bar.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="price-tag">৳ 4,500 / Night</span>
-                            <a href="#" class="btn btn-outline-dark btn-sm">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Category 3 -->
-            <div class="col-md-4">
-                <div class="card category-card">
-                    <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="Family Room">
-                    <div class="card-body p-4">
-                        <h4 class="card-title">Family Luxury Pack</h4>
-                        <p class="card-text text-muted">Spacious 2-bed room for family vacations.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span class="price-tag">৳ 6,000 / Night</span>
-                            <a href="#" class="btn btn-outline-dark btn-sm">Details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           @endforeach
         </div>
     </section>
 

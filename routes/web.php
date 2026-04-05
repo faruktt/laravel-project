@@ -11,8 +11,11 @@ use App\Http\Controllers\CustomerChartController;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('auth.login');
+});
+Route::get('/', function () {
+    return view('frontend.master');
 });
 
 Route::get('/dashboard', function () {

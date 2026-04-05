@@ -24,6 +24,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [FrontendController::class, 'frontend'])->name('fronted.view');
+Route::get('/frontend/room', [FrontendController::class, 'frontendRoom'])->name('frontend.room');
+Route::get('/frontend/about', [FrontendController::class, 'frontendAbout'])->name('frontend.about');
+Route::get('/frontend/contact', [FrontendController::class, 'frontendContact'])->name('frontend.contact');
 
 
 Route::middleware('auth')->group(function () {

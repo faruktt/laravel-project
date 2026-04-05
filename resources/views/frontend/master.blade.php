@@ -11,7 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Venobox CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.css" />
 
+<!-- jQuery (যদি আগে থেকে না থাকে) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Venobox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js"></script>
     <style>
         :root {
             --primary-color: #c5a059; /* Gold/Premium Color */
@@ -161,17 +168,18 @@
     <!-- Header / Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">FARUK GUEST HOUSE</a>
+            <a class="navbar-brand" href="{{route('fronted.view')}}">FARUK GUEST HOUSE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#rooms">Rooms</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('fronted.view')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.room')}}">Rooms</a></li>
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.about')}}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.contact')}}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.contact')}}">Gallery</a></li>
                 </ul>
                 <a href="#rooms" class="btn btn-premium ms-lg-4">Book Now</a>
             </div>

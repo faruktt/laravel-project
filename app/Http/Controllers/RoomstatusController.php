@@ -17,18 +17,18 @@ class RoomstatusController extends Controller
     }
 
     public function store(Request $request){
-    // Validate the incoming request
+    
     $request->validate([
         'roomstatus' => 'required',
     ]);
 
-    // Prepare the data to save in the database
+   
     $data = [
         'roomstatus' => $request->input('roomstatus'),
-        'status' => $request->input('status', 'Active'), // Default to 'Active' if not provided
+        'status' => $request->input('status', 'Active'), 
     ];
 
-    // Attempt to create the new record
+  
     if (Roomstatus::create($data)) {
         return redirect()->back()->with('success', 'Type added successfully!');
     } else {
@@ -39,7 +39,7 @@ class RoomstatusController extends Controller
 public function activate($id)
 {
     $roomstatus = Roomstatus::find($id);
-    $roomstatus->status = 1;  // Change status to active
+    $roomstatus->status = 1; 
     $roomstatus->save();
 
     return redirect()->route('roomstatus.index')->with('success', 'roomstatus Activated');
@@ -48,7 +48,7 @@ public function activate($id)
 public function deactivate($id)
 {
     $roomstatus = Roomstatus::find($id);
-    $roomstatus->status = 0;  // Change status to inactive
+    $roomstatus->status = 0;  
     $roomstatus->save();
 
     return redirect()->route('roomstatus.index')->with('success', 'roomstatus Deactivated');

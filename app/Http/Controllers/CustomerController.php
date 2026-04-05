@@ -24,13 +24,11 @@ class CustomerController extends Controller
             $query->where('phone', 'like', '%' . $request->input('phone') . '%');
         }
 
-
         $customers = $query->paginate(6);
 
-        
+
         $allCustomer = Customer::count();
 
-        // ভিউতে ডেটা পাঠানো
         return view('Customer.index', compact('customers', 'allCustomer'));
 >>>>>>> faruk3
     }
@@ -89,8 +87,8 @@ class CustomerController extends Controller
 
         $paymentTime = now()->setTimezone('Asia/Dhaka')->format('h:i A');
         Notification::create([
-            'user_id' => auth()->check() ? auth()->id() : null, // If user is logged in, use their ID
-            'message' => $customer->name . '-Payment Success-' . $paymentTime,  // Show the time the payment was made
+            'user_id' => auth()->check() ? auth()->id() : null,
+            'message' => $customer->name . '-Payment Success-' . $paymentTime,
             'link' => route('invoice.show', ['id' => $customer->id]),
         ]);
 

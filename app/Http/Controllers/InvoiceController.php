@@ -25,27 +25,27 @@ class InvoiceController extends Controller
     }
 
     public function showNotifications()
-        {
-            $notifications = Notification::where('user_id', auth()->id())->orderBy('created_at', 'desc')->get();
+    {
+        $notifications = Notification::where('user_id', auth()->id())->orderBy('created_at', 'desc')->get();
 
 
-            Notification::where('user_id', auth()->id())->update(['is_read' => true]);
+        Notification::where('user_id', auth()->id())->update(['is_read' => true]);
 
-            return response()->json(['notifications' => $notifications]);
-        }
+        return response()->json(['notifications' => $notifications]);
+    }
 
-        public function markAsRead()
-        {
-            Notification::where('user_id', auth()->id())->where('is_read', false)->update(['is_read' => true]);
+    public function markAsRead()
+    {
+        Notification::where('user_id', auth()->id())->where('is_read', false)->update(['is_read' => true]);
 
-            return response()->json(['success' => true]);
-        }
+        return response()->json(['success' => true]);
+    }
 
-        public function deleteNotification($id)
-        {
-            Notification::where('id', $id)->where('user_id', Auth::id())->delete();
-            return response()->json(['message' => 'Notification deleted successfully']);
-        }
+    public function deleteNotification($id)
+    {
+        Notification::where('id', $id)->where('user_id', Auth::id())->delete();
+        return response()->json(['message' => 'Notification deleted successfully']);
+    }
 
 
 }

@@ -8,16 +8,26 @@ use App\Http\Controllers\viewcustomerController;
 use App\Http\Controllers\RoomstatusController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CustomerChartController;
+use App\Http\Controllers\FrontendController;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('auth.login');
 });
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/', [FrontendController::class, 'frontend'])->name('fronted.view');
+Route::get('/frontend/room', [FrontendController::class, 'frontendRoom'])->name('frontend.room');
+Route::get('/frontend/about', [FrontendController::class, 'frontendAbout'])->name('frontend.about');
+Route::get('/frontend/contact', [FrontendController::class, 'frontendContact'])->name('frontend.contact');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

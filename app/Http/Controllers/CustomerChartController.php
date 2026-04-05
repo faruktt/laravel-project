@@ -14,7 +14,7 @@ class CustomerChartController extends Controller
     }
     public function getCustomerData()
     {
-        // এখানে আমরা এক্সট্রা কলাম যেমন: total_customers, total_price ইত্যাদি গণনা করছি
+
         $data = Customer::selectRaw('DATE(created_at) as date,
                                     COUNT(id) as total_customers,
                                     SUM(total_price) as total_price,
@@ -29,19 +29,19 @@ class CustomerChartController extends Controller
 
     public function getCustomerList(Request $request)
     {
-        $date = $request->get('date', ''); // Get the date from the request (empty by default)
+        $date = $request->get('date', ''); 
 
         $query = Customer::query();
 
         if ($date) {
-            $query->whereDate('created_at', $date); // Filter customers by the given date
+            $query->whereDate('created_at', $date);
         }
 
-        // Paginate results (5 customers per page)
+    
         $customers = $query->paginate(5);
 
         return response()->json([
-            'customers' => $customers->items(),  // Get the items for the current page
+            'customers' => $customers->items(), 
             'current_page' => $customers->currentPage(),
             'last_page' => $customers->lastPage(),
             'total' => $customers->total(),

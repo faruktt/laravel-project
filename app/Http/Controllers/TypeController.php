@@ -17,18 +17,18 @@ class TypeController extends Controller
     }
 
     public function store(Request $request){
-    // Validate the incoming request
+
     $request->validate([
         'type' => 'required',
     ]);
 
-    // Prepare the data to save in the database
+
     $data = [
         'type' => $request->input('type'),
-        'status' => $request->input('status', 'Active'), // Default to 'Active' if not provided
+        'status' => $request->input('status', 'Active'),
     ];
 
-    // Attempt to create the new record
+
     if (Type::create($data)) {
         return redirect()->back()->with('success', 'Type added successfully!');
     } else {
@@ -40,7 +40,7 @@ class TypeController extends Controller
 public function activate($id)
 {
     $type = Type::find($id);
-    $type->status = 1;  // Change status to active
+    $type->status = 1;  
     $type->save();
 
     return redirect()->route('type.index')->with('success', 'type Activated');

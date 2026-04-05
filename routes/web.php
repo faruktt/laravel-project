@@ -15,7 +15,7 @@ Route::get('/admin', function () {
     return view('auth.login');
 });
 Route::get('/', function () {
-    return view('frontend.master');
+    return view('frontend.index');
 });
 
 Route::get('/dashboard', function () {

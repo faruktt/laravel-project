@@ -21,15 +21,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/venobox/2.0.4/venobox.min.js"></script>
     <style>
         :root {
-            --primary-color: #c5a059; /* Gold/Premium Color */
+            --primary-color: #c5a059; /* Gold */
             --dark-color: #1a1a1a;
             --light-bg: #f8f9fa;
+
+            
+            --body-font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --heading-font: "Georgia", "Times New Roman", serif;
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--body-font);
             color: #333;
             overflow-x: hidden;
+            line-height: 1.6;
         }
 
         h1, h2, h3, .navbar-brand {
@@ -179,7 +184,7 @@
                     <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('frontend.about')}}">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('frontend.contact')}}">Contact</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.contact')}}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('frontend.contact')}}">Galerry</a></li>
                 </ul>
                 <a href="#rooms" class="btn btn-premium ms-lg-4">Book Now</a>
             </div>

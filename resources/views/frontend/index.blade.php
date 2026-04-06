@@ -1,7 +1,7 @@
 @extends('frontend.master')
 @section('content')
 
-<!-- 1. Hero Banner Section -->
+
 <section class="hero-section position-relative">
     <div class="container">
         <div class="hero-content text-center">
@@ -272,7 +272,7 @@
                 </div>
             </div>
 
-            
+
         </div>
         <div class="text-center mt-5">
             <a href="{{route('frontend.room')}}" class="btn btn-premium px-5 py-2 rounded-0 text-uppercase fw-bold" style="letter-spacing: 2px;">

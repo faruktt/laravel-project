@@ -76,25 +76,29 @@
             <div class="col-lg-7">
                 <div class="card border-0 shadow-lg p-4 p-md-5">
                     <h3 class="mb-4 fw-bold">Send Us a Message</h3>
-
-                    <form action="#" method="POST"> <!-- এখানে আপনার কন্ট্রোলারের রুট দিবেন -->
+                        @if(session('success'))
+                            <div class="alert alert-success mt-3">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                    <form action="{{route('contact.send')}}" method="POST"> <!-- এখানে আপনার কন্ট্রোলারের রুট দিবেন -->
                         @csrf
                         <div class="row g-4">
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Full Name</label>
-                                <input type="text" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="Enter your name" required>
+                                <input type="text" name="name" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="Enter your name" required>
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small text-uppercase">Email Address</label>
-                                <input type="email" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="Enter your email" required>
+                                <input type="email" name="email" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="Enter your email" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Subject</label>
-                                <input type="text" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="How can we help?" required>
+                                <input type="text" name="subject" class="form-control form-control-lg bg-light border-0 shadow-none" placeholder="How can we help?" required>
                             </div>
                             <div class="col-12">
                                 <label class="form-label fw-bold small text-uppercase">Your Message</label>
-                                <textarea class="form-control bg-light border-0 shadow-none" rows="5" placeholder="Write your message here..." required></textarea>
+                                <textarea name="message" class="form-control bg-light border-0 shadow-none" rows="5" placeholder="Write your message here..." required></textarea>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-premium btn-lg w-100 py-3 shadow">SEND MESSAGE</button>

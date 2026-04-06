@@ -9,6 +9,7 @@ use App\Http\Controllers\RoomstatusController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CustomerChartController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\ContactController;
 use App\Models\Notification;
 use Illuminate\Support\Facades\Route;
 
@@ -27,16 +28,14 @@ Route::get('/', [FrontendController::class, 'frontend'])->name('fronted.view');
 Route::get('/frontend/room', [FrontendController::class, 'frontendRoom'])->name('frontend.room');
 Route::get('/frontend/about', [FrontendController::class, 'frontendAbout'])->name('frontend.about');
 Route::get('/frontend/contact', [FrontendController::class, 'frontendContact'])->name('frontend.contact');
-
+Route::post('/send-message', [ContactController::class, 'store'])->name('contact.send');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-<<<<<<< HEAD
-=======
-    Route::resource('room', RoomController::class);
+  Route::resource('room', RoomController::class);
     Route::get('/room/{id}/activate', [RoomController::class, 'activate'])->name('room.activate');
     Route::get('/room/{id}/deactivate', [RoomController::class, 'deactivate'])->name('room.deactivate');
 
@@ -62,7 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/customer-chart', [CustomerChartController::class, 'getChartData'])->name('customer.chart');
     Route::get('/customer-data', [CustomerChartController::class, 'getCustomerData']);
     Route::get('/customer-list', [CustomerChartController::class, 'getCustomerList'])->name('customer.list');
->>>>>>> faruk3
 
 
 });

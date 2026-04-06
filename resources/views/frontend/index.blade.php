@@ -272,7 +272,7 @@
                 </div>
             </div>
 
-            <!-- আরও ছবি যুক্ত করতে একই প্যাটার্ন ফলো করুন -->
+            
         </div>
         <div class="text-center mt-5">
             <a href="{{route('frontend.room')}}" class="btn btn-premium px-5 py-2 rounded-0 text-uppercase fw-bold" style="letter-spacing: 2px;">

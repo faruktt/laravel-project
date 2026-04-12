@@ -28,6 +28,8 @@ Route::get('/frontend/about', [FrontendController::class, 'frontendAbout'])->nam
 Route::get('/frontend/contact', [FrontendController::class, 'frontendContact'])->name('frontend.contact');
 Route::post('/send-message', [ContactController::class, 'store'])->name('contact.send');
 
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

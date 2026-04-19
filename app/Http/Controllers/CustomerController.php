@@ -12,7 +12,6 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
 
-
         $query = Customer::query();
 
 
@@ -20,13 +19,14 @@ class CustomerController extends Controller
             $query->where('phone', 'like', '%' . $request->input('phone') . '%');
         }
 
+
         $customers = $query->paginate(6);
 
 
         $allCustomer = Customer::count();
-
-        return view('Customer.index', compact('customers', 'allCustomer'));
-
+$rooms = Room::where('status', 1)->orderBy('capacity', 'asc')->get();
+        // ভিউতে ডেটা পাঠানো
+        return view('Customer.index', compact('rooms','customers', 'allCustomer'));
     }
 
     public function create(){
@@ -83,8 +83,8 @@ class CustomerController extends Controller
 
         $paymentTime = now()->setTimezone('Asia/Dhaka')->format('h:i A');
         Notification::create([
-            'user_id' => auth()->check() ? auth()->id() : null,
-            'message' => $customer->name . '-Payment Success-' . $paymentTime,
+            'user_id' => auth()->check() ? auth()->id() : null, // If user is logged in, use their ID
+            'message' => $customer->name . '-Payment Success-' . $paymentTime,  // Show the time the payment was made
             'link' => route('invoice.show', ['id' => $customer->id]),
         ]);
 
@@ -98,5 +98,35 @@ class CustomerController extends Controller
         return view('customer.payment', compact('customer'));
     }
 
-    
+    public function update(Request $request, $id)
+    {
+        $customer = Customer::findOrFail($id);
+        $request->validate([
+            'payment' => 'required|numeric|min:0',
+        ]);
+
+        $customer->insufficient_balance -= $request->payment;
+        if ($customer->insufficient_balance < 0) {
+            $customer->insufficient_balance = 0;
+        }
+
+        $customer->payment += $request->payment; // Update total payment
+        $customer->save();
+        $paymentTime = now()->setTimezone('Asia/Dhaka')->format('h:i A');
+        Notification::create([
+            'user_id' => auth()->check() ? auth()->id() : null, // If user is logged in, use their ID
+            'message' => $customer->name . '-Payment Success-' . $paymentTime,  // Show the time the payment was made
+            'link' => route('invoice.show', ['id' => $customer->id]),
+        ]);
+
+        return redirect()->route('customer.index')->with('success', 'Payment updated successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+
+        return redirect()->route('customer.index')->with('success', 'Customer deleted successfully!');
+    }
 }

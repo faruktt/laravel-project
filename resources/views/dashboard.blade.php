@@ -51,7 +51,7 @@
 
                         let ctx = document.getElementById('customerChart').getContext('2d');
                         new Chart(ctx, {
-                            type: 'line',  
+                            type: 'line',
                             data: {
                                 labels: labels,
                                 datasets: [
